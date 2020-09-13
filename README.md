@@ -25,3 +25,5 @@ Things you may want to cover:
     - clone this repository
     - cd into the root folder
     - run `bundle install`
+ 
+ This text is added to test CI Runner
