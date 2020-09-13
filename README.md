@@ -6,9 +6,9 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-- 2.6.6
+    - 2.6.6
 * System dependencies
-- sqlite3
+    - sqlite3
 * Configuration
 
 * Database creation
@@ -22,6 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * Cloning this repository
-- clone this repository
-- cd into the root folder
-- run `bundle install`
+    - clone this repository
+    - cd into the root folder
+    - run `bundle install`
