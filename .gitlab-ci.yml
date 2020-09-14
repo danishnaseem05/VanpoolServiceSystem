@@ -10,6 +10,6 @@ before_script:
  # - bundle install --jobs $(nproc) "${FLAGS[@]}"
   - Write-Output "Hello World"
 
-#test:
- # script:
-  #  - rails test
+test:
+  script:
+    - rails test
