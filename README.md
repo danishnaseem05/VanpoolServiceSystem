@@ -26,4 +26,3 @@ Things you may want to cover:
     - cd into the root folder
     - run `bundle install`
  
- This text is added to test CI Runner
