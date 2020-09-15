@@ -5,8 +5,7 @@ before_script:
   - choco install ruby --version=2.6.5.1 --yes
   - ruby -v
   - gem install bundler --no-document
-  - ridk install
-  - "1"
+  - ridk install 1
   - gem install sqlite3
   - gem install rails
   - bundle install --jobs $(nproc) "${FLAGS[@]}"
