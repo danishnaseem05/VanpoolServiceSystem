@@ -6,7 +6,7 @@ before_script:
   - ruby -v
   - gem install bundler --no-document
   - ridk install
-  - 1
+  - "1"
   - gem install sqlite3
   - gem install rails
   - bundle install --jobs $(nproc) "${FLAGS[@]}"
