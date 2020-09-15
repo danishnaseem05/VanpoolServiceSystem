@@ -2,7 +2,7 @@ image: "ruby:2.6.6"
 
 before_script:
   - Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-  - choco install ruby --version=2.6.5.1
+  - choco install ruby --version=2.6.5.1 --yes
   #- apt-get update
   #- apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
   #- ruby -v
