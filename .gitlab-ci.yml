@@ -9,7 +9,8 @@ before_script:
   - choco install sqlite --yes
   - choco install nodejs --yes
   - choco install yarn --yes
-  - gem install nio4r -v '2.5.3' --source 'http://rubygems.org/'
+  #- gem install nio4r -v '2.5.3' --source 'http://rubygems.org/'
+  - gem install rails
   - bundle install #--jobs $(nproc) "${FLAGS[@]}"
   #- gem install rails
 
