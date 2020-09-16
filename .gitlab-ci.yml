@@ -10,7 +10,11 @@ before_script:
   - choco install nodejs --yes
   - choco install yarn --yes
   #- gem install nio4r -v '2.5.3' --source 'http://rubygems.org/'
-  - gem update --system --source 'http://rubygems.org/'
+  - gem sources -r https://rubygems.org/
+  - gem sources -a http://rubygems.org/
+  - gem update --system
+  - gem sources -r http://rubygems.org/
+    gem sources -a https://rubygems.org/
   - gem install rails --source 'http://rubygems.org/'
   - bundle install #--jobs $(nproc) "${FLAGS[@]}"
   #- gem install rails
