@@ -4,6 +4,7 @@ before_script:
   - Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
   - choco install ruby --yes #--version=2.7.1 --yes
   - ruby -v
+  - bundle install
   - gem install bundler #--source 'http://rubygems.org/'
   - choco install msys2 --yes
   - choco install sqlite --yes
