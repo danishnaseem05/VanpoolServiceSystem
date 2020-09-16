@@ -9,6 +9,8 @@ before_script:
   - choco install sqlite --yes
   - choco install nodejs --yes
   - choco install yarn --yes
+  - gem update --system
+  - gem update
   - bundle install #--jobs $(nproc) "${FLAGS[@]}"
   #- gem install rails
 
