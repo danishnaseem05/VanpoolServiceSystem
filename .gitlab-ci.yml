@@ -10,7 +10,6 @@ before_script:
   - choco install yarn --yes
   - gem update --system
   - bundle install
-  - gem install rails --source 'http://rubygems.org/'
 
 test:
   script:
