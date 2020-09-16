@@ -7,8 +7,8 @@ before_script:
   - gem install bundler --no-document
   - choco install msys2 --yes
   - choco install sqlite --yes
-  - gem install rails
   - bundle install --jobs $(nproc) "${FLAGS[@]}"
+  - gem install rails
 
 test:
   script:
