@@ -2,7 +2,12 @@ source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
-
+#clearance is an email/password login, with pw reset option
+gem 'clearance', '~> 1.15.1'
+#omniauth is for SSO stuff, if we decide to incorporate that
+gem 'omniauth', '~> 1.9.1'
+#hashie works in tandem with omniauth gem
+gem 'hashie', '~> 4.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', github: 'rails/rails'
 # Use sqlite3 as the database for Active Record
