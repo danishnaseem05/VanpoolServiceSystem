@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #set the index page
-  root 'pages#home'
+  root to: 'welcome#show'
   
   # routes set for the following
   get 'pages/home'
