@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #set the index page
-  root to: 'welcome#show'
-  
+  resources :welcome
+  root to: "welcome#show"#:to => redirect('/welcome')
   # routes set for the following
   get 'pages/home'
 
