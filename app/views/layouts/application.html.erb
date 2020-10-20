@@ -11,14 +11,17 @@
 
   <body>
   <header>
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-    <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-    <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
   </header>
 
+  <div>
+    <% if !(@current_user) %>
+      <%= button_to('Sign up/Login', login_path, method: :get, :id => 'signupLogin') %>
+    <% elsif @current_user %>
+      <%= button_to('Logout', logout_path, method: :delete, :id => 'logout') %>
+      <% flash[:notice] = "You are logged in as #{@current_user.user_id}"%>
+    <% end %>
+  </div>
+  <br/>
 
   <section>
     <div id="flash">

@@ -1,3 +1,6 @@
 class ApplicationController < ActionController::Base
-  include Clearance::Controller
+  protect_from_forgery with: :exception
+  def set_current_user
+    @current_user ||= session[:session_token ] && User.find_by_session_token(session[:session_token])
+  end
 end
