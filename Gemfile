@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 #clearance is an email/password login, with pw reset option
-gem 'clearance', '~> 1.15.1'
+
 #omniauth is for SSO stuff, if we decide to incorporate that
 gem 'omniauth', '~> 1.9.1'
 #hashie works in tandem with omniauth gem

@@ -88,7 +88,6 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -103,10 +102,6 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    clearance (1.15.1)
-      bcrypt
-      email_validator (~> 1.4)
-      rails (>= 3.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -117,8 +112,6 @@ GEM
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     duktape (2.3.0.0)
-    email_validator (1.6.0)
-      activemodel
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -228,7 +221,6 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
-  clearance (~> 1.15.1)
   coffee-rails (~> 4.2)
   duktape
   hashie (~> 4.1.0)
