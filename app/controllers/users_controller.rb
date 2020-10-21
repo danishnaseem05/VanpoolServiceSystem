@@ -8,11 +8,16 @@ class UsersController < ApplicationController
     # default: render 'new' template
   end
 
+
+
   def create
     user_id = user_params["user_id"]
     if user_id != '' && User.find_by(user_id: user_id).nil?
-      usr = User.new
-      @user = usr.create_user!(user_id: user_id, email: user_params["email"])
+      #   usr = User.new
+      session_token = SecureRandom.base64
+      user = {user_id: user_id, email: user_params["email"], session_token: session_token, password: user_params["password"]}
+      @user = User.create!(user)
+      #@user = create_user!(user_id: user_id, email: user_params["email"], password: user_params["password"])
       flash[:notice] = "Welcome #{@user.user_id}. Your account has been created."
       redirect_to login_path
     else
@@ -33,5 +38,7 @@ class UsersController < ApplicationController
     # redirect_to new_user_path and return
     #end
   end
+
+
 
 end
