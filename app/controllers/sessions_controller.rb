@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     else
       @user = User.find_by(user_id: user_id)
       session[:session_token] = @user.session_token
-      redirect_to login_path
+      redirect_to root_path
 
     end
 
