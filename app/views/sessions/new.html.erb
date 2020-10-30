@@ -3,9 +3,10 @@
 <%= form_tag login_create_path, :class => 'form' do %>
   <%= label :user, :user_id, 'User-ID', :class => 'col-form-label' %>
   <%= text_field :user, 'user_id', :class => 'form-control', :id => 'loginUser' %>
-  <%= label :user, :email, 'E-Mail', :class => 'col-form-label'  %>
-  <%= text_field :user, 'email', :class => 'form-control col-1', :id => 'loginEmail' %>
+  <%= label :user, :password, 'Password', :class => 'col-form-label'  %>
+  <%= text_field :user, 'password', :class => 'form-control col-1', :id => 'loginPassword' %>
   <br/>
   <%= submit_tag 'Login to my account', :class => 'btn btn-primary', :id => 'login_submit' %>
   <%= link_to 'Sign up for an account', new_user_path, :class => 'btn btn-secondary', :id => 'signup' %>
 <% end %>
+
