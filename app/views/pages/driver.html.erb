@@ -1,0 +1,12 @@
+<h1>Welcome Driver!</h1>
+<% if @admin %>
+  <p> Admin is true</p>
+  <%= form_tag adminfunctions_makeAdmin_path, :class => 'form' do %>
+    <%= label :user, :user_id, 'Enter User-ID:', :class => 'col-form-label' %>
+    <%= text_field :user, 'user_id', :class => 'form-control'%>
+    <%= submit_tag 'Make Admin', :class => 'btn btn-primary'%>
+  <% end %>
+  <%= button_to('Add user', login_path, method: :get) %>
+<% else %>
+  <p> Admin is false</p>
+<% end %>
