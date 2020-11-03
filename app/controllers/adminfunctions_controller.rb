@@ -26,6 +26,19 @@ class AdminfunctionsController < ApplicationController
   end
 
   def deleteUser
+    user = User.find_by(session_token: session[:session_token])
+    user_to_remove = User.find_by(user_id: user_params[:user_id])
+    if user_params[:user_id] == '' || user_to_remove.nil?
+      flash[:notice] = "No such user found."
+    else
+      user_to_remove.destroy
+      flash[:notice] = "#{user_params[:user_id]} was successfully removed from the database."
+    end
+    if user.driver
+      redirect_to pages_driver_path
+    elsif user.rider
+      redirect_to pages_rider_path
+    end
   end
 
 end
