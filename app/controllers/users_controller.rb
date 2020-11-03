@@ -42,6 +42,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "The user: '#{@user.user_id}' has been removed from the database."
+    redirect_to root_path
+  end
 
 
 end
