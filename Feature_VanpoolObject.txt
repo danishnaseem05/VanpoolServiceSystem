@@ -1,0 +1,40 @@
+https://www.ridester.com/vanpool/
+Depending on which organization is in charge of distributing the vehicles, the way vanpools work may differ. However, the following are typical for many vanpool programs in the United States:
+
+You need to pay a set fee. Most programs have options starting at $50 per month, depending on how many riders you have.
+This fare will include all costs regarding the vehicle. The vanpool coordinator is responsible for the group. Whoever
+sets up their local vanpool usually becomes one of two primary drivers for the group. Though some programs allow you to
+rotate drivers between all riders, usually only designated drivers drive and take home the vehicle due to the fact that
+prior application or training is required. The coordinator usually becomes the leaseholder, as well. You need to meet a
+minimum number of riders to receive a van. Before you sign up to create a vanpool, you typically need commitment from
+five people for a seven-passenger van, or up to 12 people for a 15-passenger van. You can join a vanpool at any time. You
+don’t have to be one of the founding members of a vanpool or an invitee to be part of one. Most programs have a platform
+for you to browse through current vanpools and join or request to join one near you. You can be booted for being inactive.
+If you’re not paying your fares or not using the service in any way, you can be booted from your vanpool. This can affect
+your fellow participants’ monthly fees, so make sure to always communicate with your co-riders.
+
+
+Questions:
+-will we need like a location object?
+---->I think we might for anything where we want to measure proximity such as "view vanpools near you"; http://www.rubygeocoder.com/
+-what methods should a driver have?
+-can only drivers volunteer to drive?
+Vanpool Object Attributes:
+-User: coordinator
+-string driver_id
+-Array of Users: vanpool_members
+-string: meeting_time
+-string: pickup_location
+-string: destination_location
+-boolean: full
+-integer: capacity
+-integer: number_of_members_in_vanpool
+
+Vanpool Object Methods:
+-create
+-destroy
+-show #
+-join_vanpool
+-leave_vanpool
+-volunteer_to_drive
+
