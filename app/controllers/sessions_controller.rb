@@ -19,15 +19,20 @@ class SessionsController < ApplicationController
     else
       @user = User.find_by(user_id: user_id)
       session[:session_token] = @user.session_token
-      redirect_to login_path
-
+      if @user.driver
+        redirect_to pages_driver_path
+      elsif @user.rider
+        redirect_to pages_rider_path
+      else
+        redirect_to root_path
+      end
     end
-
   end
 
   def destroy
-    reset_session
-    redirect_to login_path
+    @_request.reset_session
+    flash[:notice] = "You have successfully been logged out"
+    redirect_to root_path
   end
 
 end

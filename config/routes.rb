@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   match '/login_create', to: 'sessions#create', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
 
+  get 'pages/driver'
+  get 'pages/rider'
 
-
+  #  post "/adminfunctions/deleteUser
+  post 'adminfunctions/makeAdmin'
+  get 'adminfunctions/addUser'
+  post 'adminfunctions/deleteUser'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
