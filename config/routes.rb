@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get 'pages/driver'
   get 'pages/rider'
 
+  #  post "/adminfunctions/deleteUser
   post 'adminfunctions/makeAdmin'
   get 'adminfunctions/addUser'
-  get 'adminfunctions/deleteUser'
+  post 'adminfunctions/deleteUser'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
