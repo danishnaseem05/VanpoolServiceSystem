@@ -7,6 +7,7 @@
   <%= text_field :user, 'email', :class => 'form-control col-1', :id => 'signupEmail' %>
   <%= label :user, :password, 'Password', :class => 'col-form-label'  %>
   <%= text_field :user, 'password', :class => 'form-control col-1', :id => 'signupPassword' %>
+  <%= select_tag :role, options_for_select([:rider, :driver]) %>
   <br/>
   <%= submit_tag 'Create my account', :class => 'btn btn-primary', :id => 'signupCreate' %>
 <% end %>
