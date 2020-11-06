@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_205258) do
+ActiveRecord::Schema.define(version: 2020_11_06_000212) do
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 2020_11_01_205258) do
     t.boolean "admin"
     t.boolean "driver"
     t.boolean "rider"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
   end
 
 end

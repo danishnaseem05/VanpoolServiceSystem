@@ -13,7 +13,8 @@
     <%= submit_tag 'Remove user', :class => 'btn btn-primary'%>
   <% end %>
 
-    <%= button_to('Add user', login_path, method: :get) %>
 <% else %>
   <p> Admin is false</p>
 <% end %>
+
+<%= button_to "Update Profile", profiles_index_path, method: :get %>

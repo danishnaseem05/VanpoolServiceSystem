@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     # default: render 'new' template
   end
 
-
   def create
     user_id = user_params["user_id"]
     email = user_params["email"]
@@ -48,6 +47,5 @@ class UsersController < ApplicationController
     flash[:notice] = "The user: '#{@user.user_id}' has been removed from the database."
     redirect_to root_path
   end
-
 
 end

@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   post 'adminfunctions/makeAdmin'
   get 'adminfunctions/addUser'
   post 'adminfunctions/deleteUser'
+
+  get 'profiles/index'
+  post 'profiles/update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
