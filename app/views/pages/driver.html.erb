@@ -1,6 +1,6 @@
 <h1>Welcome Driver!</h1>
 <% if @admin %>
-  <p> Admin is true</p>
+  <p> Admin Functions</p>
   <%= form_tag adminfunctions_makeAdmin_path, :class => 'form' do %>
     <%= label :user, :user_id, 'Enter User-ID:', :class => 'col-form-label' %>
     <%= text_field :user, 'user_id', :class => 'form-control'%>
@@ -12,8 +12,11 @@
     <%= text_field :user, 'user_id', :class => 'form-control'%>
     <%= submit_tag 'Remove user', :class => 'btn btn-primary'%>
   <% end %>
+  <%= form_tag path, :class => 'form' do %>
+    <%= label :user,  %>
+  <% end %>
 
 <% else %>
-  <p> Admin is false</p>
+  <p> User is not admin</p>
 <% end %>
 
