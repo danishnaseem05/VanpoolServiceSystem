@@ -1,0 +1,8 @@
+- add link_to to the vanpools index page that would bring back to the admins home page
+- add non-admin function for the rider to join one of the created vanpools
+
+Iteration 2
+- create riders, drivers, admins database tables, which their gonna extend on the users database table
+- admins, riders, drivers are going to be users
+- use geolocation gem to translate coordinates into locations and vice versa
+- use actual coordinates in the vanpools table's pickup and dropoff location columns

@@ -13,10 +13,10 @@
     <%= submit_tag 'Remove user', :class => 'btn btn-primary'%>
   <% end %>
   </br>
-  <%= button_to "List All Vanpools", vanpools_index_path, :method => :get%>
+
   <%= button_to "Create New Vanpool", vanpools_new_path, :method => :get %>
 
 <% else %>
   <p> User is not admin</p>
 <% end %>
-
+<%= button_to "List All Vanpools", vanpools_index_path, :method => :get%>
