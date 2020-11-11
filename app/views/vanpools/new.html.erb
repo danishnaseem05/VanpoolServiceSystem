@@ -1,0 +1,23 @@
+<%= form_tag vanpools_create_path, :class => 'form' do %>
+  <%= label :vanpool, :name, 'Enter Name:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'name', :class => 'form-control'%>
+  </br>
+  <%= label :vanpool, :cost, 'Enter Cost:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'cost', :class => 'form-control'%>
+  </br>
+  <%= label :vanpool, :max_capacity, 'Enter Max Capacity:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'max_capacity', :class => 'form-control'%>
+  </br>
+  <%= label :vanpool, :start_time, 'Enter Start Time:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'start_time', :class => 'form-control'%>
+  </br>
+  <%= label :vanpool, :end_time, 'Enter End Time:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'end_time', :class => 'form-control'%>
+  </br>
+  <%= label :vanpool, :pickup_location, 'Enter Pickup Location:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'pickup_location', :class => 'form-control'%>
+  </br>
+  <%= label :vanpool, :dropoff_location, 'Enter Dropoff Location:', :class => 'col-form-label' %>
+  <%= text_field :vanpool, 'dropoff_location', :class => 'form-control'%>
+  <%= submit_tag 'Create Vanpool', :class => 'btn btn-primary'%>
+<% end %>

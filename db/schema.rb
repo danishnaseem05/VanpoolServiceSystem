@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_000212) do
+ActiveRecord::Schema.define(version: 2020_11_10_235429) do
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 2020_11_06_000212) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
+  end
+
+  create_table "vanpools", force: :cascade do |t|
+    t.string "name"
+    t.string "cost"
+    t.integer "current_capacity"
+    t.integer "max_capacity"
+    t.string "start_time"
+    t.string "end_time"
+    t.string "pickup_location"
+    t.string "dropoff_location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
