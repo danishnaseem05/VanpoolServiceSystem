@@ -5,10 +5,17 @@
   <% @vanpools.each do |v| %>
     <tr>
       <td>
+        <% if @current_user %>
+          <%= check_box_tag "vanpools[#{v.id}]" %>
+        <% end %>
         <%= v.serializable_hash%>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
-
+</br>
+<% if @current_user %>
+  <%= button_to("Join Vanpool", pages_welcome_path, method: :post) %>
+<% end %>
+<%= link_to "Go Back", pages_welcome_path %>

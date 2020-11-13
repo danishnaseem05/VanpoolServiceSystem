@@ -1,4 +1,8 @@
-<h1>Welcome Rider!</h1>
+<% if @driver %>
+  <h1>Welcome Driver!</h1>
+<% elsif @rider %>
+  <h1>Welcome Rider!</h1>
+<% end %>
 <% if @admin %>
   <p> Admin Functions</p>
   <%= form_tag adminfunctions_makeAdmin_path, :class => 'form' do %>
@@ -12,9 +16,11 @@
     <%= text_field :user, 'user_id', :class => 'form-control'%>
     <%= submit_tag 'Remove user', :class => 'btn btn-primary'%>
   <% end %>
+  </br>
+
+  <%= button_to "Create New Vanpool", vanpools_new_path, :method => :get %>
 
 <% else %>
   <p> User is not admin</p>
 <% end %>
-
-<%= button_to "Update Profile", profiles_index_path, method: :get %>
+<%= button_to "List All Vanpools", vanpools_index_path, :method => :get%>

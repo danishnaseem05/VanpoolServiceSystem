@@ -1,4 +1,3 @@
-- add link_to to the vanpools index page that would bring back to the admins home page
 - add non-admin function for the rider to join one of the created vanpools
 
 Iteration 2

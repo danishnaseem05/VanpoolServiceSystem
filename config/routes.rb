@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   match '/login_create', to: 'sessions#create', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
 
-  get 'pages/driver'
-  get 'pages/rider'
+  get 'pages/welcome'
 
   #  post "/adminfunctions/deleteUser
   post 'adminfunctions/makeAdmin'
@@ -24,4 +23,5 @@ Rails.application.routes.draw do
   get 'vanpools/index'
   get 'vanpools/new'
   post 'vanpools/create'
+  post 'vanpools/join'
 end
