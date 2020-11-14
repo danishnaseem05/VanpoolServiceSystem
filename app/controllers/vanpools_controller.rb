@@ -40,15 +40,19 @@ class VanpoolsController < ApplicationController
     user = user[0]
     vanpool_ids = user[:vanpool_ids]
     params[:vanpools].keys.each do |id|
-      #TODO append the vanpool ids to the user's vanpool_ids columns' array
-      if vanpool_ids.nil?
-        user[:vanpool_ids] = id
+      id = id.to_i
+      bool = vanpool_ids.any? do |u_v_id|
+        u_v_id == id
+      end
+      if !bool
+        user[:vanpool_ids] << id
+        vanpool = Vanpool.find_by(id: id)
+        vanpool.current_capacity = vanpool.current_capacity + 1
+        vanpool.save
         user.save
-      else
-        user[:vanpool_ids].append(id).save
       end
     end
-    flash[:notice] = "Vanpool(s) Successfully added"
+    #flash[:notice] = "Vanpool(s) Successfully added"
     redirect_to pages_welcome_path
   end
 end

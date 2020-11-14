@@ -16,6 +16,7 @@
   <div>
     <% if !(@current_user) %>
       <%= button_to('Sign up/Login', login_path, method: :get, :id => 'signupLogin') %>
+      <%= button_to('Forgot Password', login_path, method: :get) %>
       <%= button_to('Home', root_path, method: :get) %>
     <% elsif @current_user %>
       <%= button_to('Logout', logout_path, method: :delete, :id => 'logout') %>
