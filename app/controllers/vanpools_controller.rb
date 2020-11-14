@@ -34,8 +34,21 @@ class VanpoolsController < ApplicationController
     redirect_to vanpools_index_path
   end
 
+  #TODO make rider and driver join seperately
   def join
-
+    user = User.where(session_token: session[:session_token])
+    user = user[0]
+    vanpool_ids = user[:vanpool_ids]
+    params[:vanpools].keys.each do |id|
+      #TODO append the vanpool ids to the user's vanpool_ids columns' array
+      if vanpool_ids.nil?
+        user[:vanpool_ids] = id
+        user.save
+      else
+        user[:vanpool_ids].append(id).save
+      end
+    end
+    flash[:notice] = "Vanpool(s) Successfully added"
+    redirect_to pages_welcome_path
   end
-
 end
