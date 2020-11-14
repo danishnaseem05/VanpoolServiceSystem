@@ -3,5 +3,5 @@
 #
 # Examples:
 #
-User.create(user_id: 'admin', password: 'admin', driver: true, admin: true)
+User.create(user_id: 'admin', password: 'admin', driver: true, admin: true, session_token: SecureRandom.base64)
 #   Character.create(name: 'Luke', movie: movies.first)

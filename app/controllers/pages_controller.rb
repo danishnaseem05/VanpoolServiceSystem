@@ -4,14 +4,15 @@ class PagesController < ApplicationController
   def home
   end
 
-  def driver
+  def welcome
     user = User.find_by(session_token: session[:session_token])
-    @admin = user.admin
-  end
-
-  def rider
-    user = User.find_by(session_token: session[:session_token])
-    @admin = user.admin
+    if !user.nil?
+      @admin = user.admin
+      @driver = user.driver
+      @rider = user.rider
+    else
+      redirect_to root_path
+    end
   end
 
 end
