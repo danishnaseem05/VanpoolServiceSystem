@@ -38,3 +38,6 @@ Vanpool Object Methods:
 -leave_vanpool
 -volunteer_to_drive
 
+
+Used the following gem to get the coordinates of a location
+geocoder gem
