@@ -15,11 +15,7 @@ class AdminfunctionsController < ApplicationController
       user_to_make_admin.save
       flash[:notice] = "#{user_params[:user_id]} successfully made admin."
     end
-    if user.driver
-      redirect_to pages_driver_path
-    elsif user.rider
-      redirect_to pages_rider_path
-    end
+    redirect_to pages_welcome_path
   end
 
   def addUser
@@ -34,11 +30,7 @@ class AdminfunctionsController < ApplicationController
       user_to_remove.destroy
       flash[:notice] = "#{user_params[:user_id]} was successfully removed from the database."
     end
-    if user.driver
-      redirect_to pages_driver_path
-    elsif user.rider
-      redirect_to pages_rider_path
-    end
+    redirect_to pages_welcome_path
   end
 
 end

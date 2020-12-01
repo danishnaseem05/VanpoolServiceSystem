@@ -1,6 +1,16 @@
 - add non-admin function for the rider to join one of the created vanpools
 
 Iteration 2
+Driver
+- Driver makes an account, notification to approve get sent to the admin
+- Admin approves the driver
+- Driver's "Volunteer To Drive" Button becomes enabled
+- Once the Driver clicks on the button, a list of vanpools without a driver are shown
+- Driver can join vanpools as long as there is not a time conflict
+
+
+
+
 - user can join multiple vanpools
 - create riders, drivers, admins database tables, which their gonna extend on the users database table
 - admins, riders, drivers are going to be users
