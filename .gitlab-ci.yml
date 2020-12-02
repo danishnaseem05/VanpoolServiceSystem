@@ -5,9 +5,9 @@ before_script:
   - ruby -v
   - choco install nodejs --yes
   - choco install yarn --yes
-  #- gem update --system
+  - gem update --system
   - bundle install
-  #- bundle update
+  - bundle update
 
 test:
   script:
