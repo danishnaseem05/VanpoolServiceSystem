@@ -7,7 +7,6 @@ before_script:
   - choco install yarn --yes
   - gem update --system
   - bundle install
-  - bundle update
 
 test:
   script:
