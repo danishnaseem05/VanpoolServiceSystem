@@ -20,8 +20,11 @@ class UsersController < ApplicationController
         rider=true
       end
       session_token = SecureRandom.base64
-      user = {user_id: user_id, email: email, session_token: session_token, password: user_params["password"], driver: driver, rider: rider, admin: admin}
+      user = {user_id: user_id, email: email, session_token: session_token, password: user_params["password"], driver: driver, rider: rider, admin: admin, approved: false}
       @user = User.create!(user)
+      #1 TODO: send email to the users notifying their account has been created
+      
+
       flash[:notice] = "Welcome #{@user.user_id}. Your account has been created."
       redirect_to login_path
     else

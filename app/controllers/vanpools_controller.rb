@@ -39,20 +39,25 @@ class VanpoolsController < ApplicationController
     user = User.where(session_token: session[:session_token])
     user = user[0]
     vanpool_ids = user[:vanpool_ids]
-    params[:vanpools].keys.each do |id|
-      id = id.to_i
-      bool = vanpool_ids.any? do |u_v_id|
-        u_v_id == id
+    begin
+      params[:vanpools].keys.each do |id|
+        id = id.to_i
+        bool = vanpool_ids.any? do |u_v_id|
+          u_v_id == id
+        end
+        if !bool
+          user[:vanpool_ids] << id
+          vanpool = Vanpool.find_by(id: id)
+          vanpool.current_capacity = vanpool.current_capacity + 1
+          vanpool.save
+          user.save
+        end
       end
-      if !bool
-        user[:vanpool_ids] << id
-        vanpool = Vanpool.find_by(id: id)
-        vanpool.current_capacity = vanpool.current_capacity + 1
-        vanpool.save
-        user.save
-      end
+    rescue
+      flash[:notice] = "No Vanpool(s) Selected"
+      redirect_to vanpools_index_path and return
     end
-    #flash[:notice] = "Vanpool(s) Successfully added"
+    flash[:notice] = "Vanpool(s) Successfully added"
     redirect_to pages_welcome_path
   end
 end

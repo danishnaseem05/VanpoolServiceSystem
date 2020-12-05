@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_215403) do
+ActiveRecord::Schema.define(version: 2020_12_05_215251) do
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_215403) do
     t.string "last_name"
     t.string "phone_number"
     t.text "vanpool_ids", default: "--- []\n"
+    t.boolean "approved"
   end
 
   create_table "vanpools", force: :cascade do |t|
