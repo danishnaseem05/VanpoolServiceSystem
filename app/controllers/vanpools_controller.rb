@@ -34,7 +34,6 @@ class VanpoolsController < ApplicationController
     redirect_to vanpools_index_path
   end
 
-  #TODO make rider and driver join seperately
   def join
     user = User.where(session_token: session[:session_token])
     user = user[0]

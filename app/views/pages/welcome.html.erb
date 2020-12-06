@@ -22,23 +22,28 @@
   </br>
 
   <% if !(@users.empty?) %>
-    <h4>Unapproved Drivers</h4>
+    <h4 style="color:red;">Unapproved Drivers</h4>
     <table>
-      <% @users.each do |user| %>
-        <tr>
-          <td>
-            <%=check_box_tag "unapproved_drivers[#{user[:id]}]" %>
-          </td>
-          <td>
-            <%= user.serializable_hash %>
-          </td>
-        </tr>
+      <%= form_tag adminfunctions_approveDriver_path, :class => 'form' do %>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%=check_box_tag "unapproved_drivers[#{user[:id]}]" %>
+            </td>
+            <td>
+              <%= user.serializable_hash %>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+        <%= submit_tag 'Approve Driver(s)', :class => 'btn btn-primary'%>
       <% end %>
-    </table>
   <% elsif @users.empty? %>
     <h4 style="color:green;"> All Drivers have been approved</h4>
   <% end %>
-  </br>
+
+
+  </br></br>
   <%= button_to "Create New Vanpool", vanpools_new_path, :method => :get %>
 
 <% else %>
