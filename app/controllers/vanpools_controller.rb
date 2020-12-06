@@ -37,25 +37,43 @@ class VanpoolsController < ApplicationController
   def join
     user = User.where(session_token: session[:session_token])
     user = user[0]
-    vanpool_ids = user[:vanpool_ids]
-    begin
-      params[:vanpools].keys.each do |id|
-        id = id.to_i
-        bool = vanpool_ids.any? do |u_v_id|
-          u_v_id == id
+    rider_vanpool_ids = user[:rider_vanpool_ids]
+    driver_vanpool_ids = user[:driver_vanpool_ids]
+    #begin
+      # Join Ride
+      params[:vanpools].keys.each do |v_id|
+        v_id = v_id.to_i
+        bool = rider_vanpool_ids.any? do |u_v_id|
+          u_v_id == v_id
         end
         if !bool
-          user[:vanpool_ids] << id
-          vanpool = Vanpool.find_by(id: id)
+          user[:rider_vanpool_ids] << v_id
+          vanpool = Vanpool.find_by(id: v_id)
           vanpool.current_capacity = vanpool.current_capacity + 1
           vanpool.save
           user.save
         end
       end
-    rescue
-      flash[:notice] = "No Vanpool(s) Selected"
-      redirect_to vanpools_index_path and return
-    end
+
+      # Volunteer to Drive
+      params[:vanpools_driver].keys.each do |v_id|
+        v_id = v_id.to_i
+        bool = driver_vanpool_ids.any? do |u_v_id|
+          u_v_id == v_id
+        end
+        if !bool
+          user[:driver_vanpool_ids] << v_id
+          vanpool = Vanpool.find_by(id: v_id)
+          vanpool.driver = user.id
+          vanpool.save
+          user.save
+        end
+
+      end
+    #rescue
+    # flash[:notice] = "No Vanpool(s) Selected"
+    # redirect_to vanpools_index_path and return
+    #end
     flash[:notice] = "Vanpool(s) Successfully added"
     redirect_to pages_welcome_path
   end
