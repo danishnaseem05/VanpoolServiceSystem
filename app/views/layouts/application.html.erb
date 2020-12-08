@@ -19,9 +19,9 @@
       <%= button_to('Forgot Password', login_path, method: :get) %>
       <%= button_to('Home', root_path, method: :get) %>
     <% elsif @current_user %>
+      <p>You are logged in as <%="#{@current_user.user_id}, with a vanpools_id: #{@current_user.vanpool_ids}"%></p>
       <%= button_to('Logout', logout_path, method: :delete, :id => 'logout') %>
       <%= button_to("Home", pages_welcome_path, method: :get) %>
-      <p>You are logged in as <%="#{@current_user.user_id}"%></p>
     <% end %>
   </div>
   <br/>
