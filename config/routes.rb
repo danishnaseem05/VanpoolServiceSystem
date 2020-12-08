@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'adminfunctions/makeAdmin'
   get 'adminfunctions/addUser'
   post 'adminfunctions/deleteUser'
+  post 'adminfunctions/approveDriver'
 
   get 'profiles/index'
   post 'profiles/update'

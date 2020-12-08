@@ -33,4 +33,20 @@ class AdminfunctionsController < ApplicationController
     redirect_to pages_welcome_path
   end
 
+  def approveDriver
+    begin
+      params[:unapproved_drivers].keys.each do |id|
+        id = id.to_i
+        user = User.find_by(id: id)
+        user.approved = true
+        user.save
+      end
+    rescue
+      flash[:notice] = "No Driver(s) Selected"
+      redirect_to pages_welcome_path and return
+    end
+    flash[:notice] = "Driver(s) Successfully Approved"
+    redirect_to pages_welcome_path
+  end
+
 end

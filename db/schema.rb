@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_215403) do
+ActiveRecord::Schema.define(version: 2020_12_06_214022) do
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 2020_11_14_215403) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.text "vanpool_ids", default: "--- []\n"
+    t.text "rider_vanpool_ids", default: "--- []\n"
+    t.boolean "approved"
+    t.text "driver_vanpool_ids", default: "--- []\n"
   end
 
   create_table "vanpools", force: :cascade do |t|
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_215403) do
     t.string "dropoff_location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "driver"
   end
 
 end
