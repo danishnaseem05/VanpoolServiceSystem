@@ -1,8 +1,6 @@
 # Completed step definitions for basic features: AddMovie, ViewDetails, EditMovie
 
-Given /^I am on the RottenPotatoes home page$/ do
-  visit movies_path
- end
+
 
  When /^I have added a movie with title "(.*?)" and rating "(.*?)"$/ do |title, rating|
   visit new_movie_path
@@ -35,6 +33,6 @@ And(/^I click "(.*?)"$/) do |arg|
   click_button arg
 end
 
-Then(/^I should be redirected to (.*?) $/) do |arg|
-  expect(page).to have_current_path(arg)
+Then('I should be redirected to {string}') do |string|
+  expect(page).to have_current_path(string)
 end
