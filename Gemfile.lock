@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 19850107cdaf0525861a4c88748d0e1d9d41516b
+  revision: 3397924e6697631970bb50c6475d2922656311aa
   specs:
     actioncable (6.1.0.rc1)
       actionpack (= 6.1.0.rc1)
@@ -154,6 +154,7 @@ GEM
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.13.1)
+    ffi (1.13.1-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -181,13 +182,18 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     msgpack (1.3.3)
+    msgpack (1.3.3-x64-mingw32)
     multi_test (0.1.2)
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.10-x64-mingw32)
+      mini_portile2 (~> 2.4.0)
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+    pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     protobuf-cucumber (3.10.8)
       activesupport (>= 3.2)
       middleware
@@ -208,6 +214,23 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.2)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-rails (4.0.1)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.9)
+      rspec-expectations (~> 3.9)
+      rspec-mocks (~> 3.9)
+      rspec-support (~> 3.9)
+    rspec-support (3.10.0)
     rubyzip (2.3.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -241,6 +264,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.3)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2020.4)
+      tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     web-console (4.1.0)
@@ -261,6 +286,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
@@ -274,8 +300,10 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen
   omniauth (~> 1.9.1)
+  pg
   puma (~> 3.11)
   rails!
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   sqlite3
@@ -289,4 +317,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   1.17.3
+   2.1.4

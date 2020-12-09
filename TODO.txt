@@ -1,6 +1,29 @@
 - add non-admin function for the rider to join one of the created vanpools
 
 Iteration 2
+
+####### PRIORITY ########
+- Make the password hidden, and convert to hash when storing them in the database
+- Add functionality to the forgot password button
+    - Email the user some token link, clicking on which is gonna open up a form,
+    which has new password and confirm new password fields and a submit button.
+    After clicking on submit, the password will get updated.
+
+Driver
+- Add functionality for the admin to approve the unapproved driver(s) from the table
+    - add in a form, which goes to some controller action which takes in selected checkboxes, and
+    makes the database approve column for that driver to be true.
+
+############################
+
+
+
+- Driver makes an account, notification to approve get sent to the admin
+- Admin approves the driver
+- Driver's "Volunteer To Drive" Button becomes enabled
+- Once the Driver clicks on the button, a list of vanpools without a driver are shown
+- Driver can join vanpools as long as there is not a time conflict
+
 - user can join multiple vanpools
 - create riders, drivers, admins database tables, which their gonna extend on the users database table
 - admins, riders, drivers are going to be users

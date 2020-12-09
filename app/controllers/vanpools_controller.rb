@@ -36,23 +36,37 @@ class VanpoolsController < ApplicationController
 
   #TODO make rider and driver join seperately
   def join
-    user = User.where(session_token: session[:session_token])
-    user = user[0]
-    vanpool_ids = user[:vanpool_ids]
-    params[:vanpools].keys.each do |id|
-      id = id.to_i
-      bool = vanpool_ids.any? do |u_v_id|
-        u_v_id == id
+    vanpool_ids = @current_user[:rider_vanpool_ids]
+    if @current_user.nil?
+      flash[:notice] = "user is nil"
+      redirect_to pages_welcome_path and return
+    end
+    if vanpool_ids.nil?
+      flash[:notice] = "47 vanpool_ids is nil", @current_user
+      redirect_to pages_welcome_path and return
+    end
+    params[:vanpools].keys.each do |vid|
+      vid = vid.to_i
+      added = false
+      if vanpool_ids.nil?
+        flash[:notice] = "57 vanpool_ids is nil"
+        redirect_to pages_welcome_path and return
       end
-      if !bool
-        user[:vanpool_ids] << id
-        vanpool = Vanpool.find_by(id: id)
+      vanpool_ids.each do |id|
+        if id == vid
+          added = true
+        end
+      end
+      if !added
+        @current_user.rider_vanpool_ids_will_change!
+        @current_user.rider_vanpool_ids << vid
+        vanpool = Vanpool.find_by(id: vid)
         vanpool.current_capacity = vanpool.current_capacity + 1
         vanpool.save
-        user.save
+        @current_user.save
       end
     end
-    #flash[:notice] = "Vanpool(s) Successfully added"
+    flash[:notice] = "#{@current_user.user_id}, you successfully joined the vanpool(s)."
     redirect_to pages_welcome_path
   end
 end

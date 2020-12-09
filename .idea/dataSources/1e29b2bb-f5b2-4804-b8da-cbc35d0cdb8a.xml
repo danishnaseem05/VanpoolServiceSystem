@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="development [3]">
+<dataSource name="test">
   <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.19">
     <root id="1">
       <ServerVersion>3.31.1</ServerVersion>
@@ -96,6 +96,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="29" parent="10" name="created_at">
       <Position>2</Position>
@@ -110,134 +111,100 @@
     <column id="31" parent="10" name="user_id">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="32" parent="10" name="email">
       <Position>5</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="33" parent="10" name="session_token">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="34" parent="10" name="password">
       <Position>7</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="35" parent="10" name="admin">
       <Position>8</Position>
       <DataType>boolean|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="36" parent="10" name="driver">
       <Position>9</Position>
       <DataType>boolean|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="37" parent="10" name="rider">
       <Position>10</Position>
       <DataType>boolean|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="38" parent="10" name="first_name">
       <Position>11</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="39" parent="10" name="last_name">
       <Position>12</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="40" parent="10" name="phone_number">
       <Position>13</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="41" parent="10" name="rider_vanpool_ids">
+    <column id="41" parent="10" name="vanpool_ids">
       <Position>14</Position>
-      <DataType>text|0s</DataType>
-      <DefaultExpression>&apos;--- []
-&apos;</DefaultExpression>
+      <DataType>integer|0s</DataType>
     </column>
-    <column id="42" parent="10" name="approved">
-      <Position>15</Position>
-      <DataType>boolean|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
-    </column>
-    <column id="43" parent="10" name="driver_vanpool_ids">
-      <Position>16</Position>
-      <DataType>text|0s</DataType>
-      <DefaultExpression>&apos;--- []
-&apos;</DefaultExpression>
-    </column>
-    <key id="44" parent="10">
+    <key id="42" parent="10">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="45" parent="11" name="id">
+    <column id="43" parent="11" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="46" parent="11" name="name">
+    <column id="44" parent="11" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="47" parent="11" name="cost">
+    <column id="45" parent="11" name="cost">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="48" parent="11" name="current_capacity">
+    <column id="46" parent="11" name="current_capacity">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="49" parent="11" name="max_capacity">
+    <column id="47" parent="11" name="max_capacity">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="50" parent="11" name="start_time">
+    <column id="48" parent="11" name="start_time">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="51" parent="11" name="end_time">
+    <column id="49" parent="11" name="end_time">
       <Position>7</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="52" parent="11" name="pickup_location">
+    <column id="50" parent="11" name="pickup_location">
       <Position>8</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="53" parent="11" name="dropoff_location">
+    <column id="51" parent="11" name="dropoff_location">
       <Position>9</Position>
       <DataType>varchar|0s</DataType>
-      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="54" parent="11" name="created_at">
+    <column id="52" parent="11" name="created_at">
       <Position>10</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="11" name="updated_at">
+    <column id="53" parent="11" name="updated_at">
       <Position>11</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="56" parent="11" name="driver">
-      <Position>12</Position>
-      <DataType>integer|0s</DataType>
-    </column>
-    <key id="57" parent="11">
+    <key id="54" parent="11">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
