@@ -36,7 +36,7 @@ class VanpoolsController < ApplicationController
 
   #TODO make rider and driver join seperately
   def join
-    vanpool_ids = @current_user[:vanpool_ids]
+    vanpool_ids = @current_user[:rider_vanpool_ids]
     if @current_user.nil?
       flash[:notice] = "user is nil"
       redirect_to pages_welcome_path and return
@@ -58,8 +58,8 @@ class VanpoolsController < ApplicationController
         end
       end
       if !added
-        @current_user.vanpool_ids_will_change!
-        @current_user.vanpool_ids << vid
+        @current_user.rider_vanpool_ids_will_change!
+        @current_user.rider_vanpool_ids << vid
         vanpool = Vanpool.find_by(id: vid)
         vanpool.current_capacity = vanpool.current_capacity + 1
         vanpool.save
