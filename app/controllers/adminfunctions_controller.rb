@@ -5,14 +5,12 @@ class AdminfunctionsController < ApplicationController
   end
 
   def makeAdmin
-    user = User.find_by(session_token: session[:session_token])
     user_to_make_admin = User.find_by(user_id: user_params[:user_id])
     if user_params[:user_id] == '' || user_to_make_admin.nil?
       flash[:notice] = "No such user found."
     else
-      flash[:notice] = "line 13"
       user_to_make_admin.admin = true
-      user_to_make_admin.save
+      user_to_make_admin.save!
       flash[:notice] = "#{user_params[:user_id]} successfully made admin."
     end
     redirect_to pages_welcome_path
@@ -39,7 +37,7 @@ class AdminfunctionsController < ApplicationController
         id = id.to_i
         user = User.find_by(id: id)
         user.approved = true
-        user.save
+        user.save!
       end
     rescue
       flash[:notice] = "No Driver(s) Selected"
