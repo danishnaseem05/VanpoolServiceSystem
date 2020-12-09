@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   serialize :vanpool_ids, Array
+  serialize :rider_vanpool_ids, Array
+  serialize :driver_vanpool_ids, Array
 
   #def User::create_user! (params)
     #session_token = SecureRandom.base64

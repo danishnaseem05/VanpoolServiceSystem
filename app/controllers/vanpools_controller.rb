@@ -34,47 +34,39 @@ class VanpoolsController < ApplicationController
     redirect_to vanpools_index_path
   end
 
+  #TODO make rider and driver join seperately
   def join
-    user = User.where(session_token: session[:session_token])
-    user = user[0]
-    rider_vanpool_ids = user[:rider_vanpool_ids]
-    driver_vanpool_ids = user[:driver_vanpool_ids]
-    #begin
-      # Join Ride
-      params[:vanpools].keys.each do |v_id|
-        v_id = v_id.to_i
-        bool = rider_vanpool_ids.any? do |u_v_id|
-          u_v_id == v_id
-        end
-        if !bool
-          user[:rider_vanpool_ids] << v_id
-          vanpool = Vanpool.find_by(id: v_id)
-          vanpool.current_capacity = vanpool.current_capacity + 1
-          vanpool.save
-          user.save
+    vanpool_ids = @current_user[:rider_vanpool_ids]
+    if @current_user.nil?
+      flash[:notice] = "user is nil"
+      redirect_to pages_welcome_path and return
+    end
+    if vanpool_ids.nil?
+      flash[:notice] = "47 vanpool_ids is nil", @current_user
+      redirect_to pages_welcome_path and return
+    end
+    params[:vanpools].keys.each do |vid|
+      vid = vid.to_i
+      added = false
+      if vanpool_ids.nil?
+        flash[:notice] = "57 vanpool_ids is nil"
+        redirect_to pages_welcome_path and return
+      end
+      vanpool_ids.each do |id|
+        if id == vid
+          added = true
         end
       end
-
-      # Volunteer to Drive
-      params[:vanpools_driver].keys.each do |v_id|
-        v_id = v_id.to_i
-        bool = driver_vanpool_ids.any? do |u_v_id|
-          u_v_id == v_id
-        end
-        if !bool
-          user[:driver_vanpool_ids] << v_id
-          vanpool = Vanpool.find_by(id: v_id)
-          vanpool.driver = user.id
-          vanpool.save
-          user.save
-        end
-
+      if !added
+        @current_user.rider_vanpool_ids_will_change!
+        @current_user.rider_vanpool_ids << vid
+        vanpool = Vanpool.find_by(id: vid)
+        vanpool.current_capacity = vanpool.current_capacity + 1
+        vanpool.save
+        @current_user.save
       end
-    #rescue
-    # flash[:notice] = "No Vanpool(s) Selected"
-    # redirect_to vanpools_index_path and return
-    #end
-    flash[:notice] = "Vanpool(s) Successfully added"
+    end
+    flash[:notice] = "#{@current_user.user_id}, you successfully joined the vanpool(s)."
     redirect_to pages_welcome_path
   end
 end
