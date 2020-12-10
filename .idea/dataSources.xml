@@ -12,11 +12,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="development" uuid="cf139eea-e7f6-4d0d-93ce-097a24a5f88e">
+    <data-source source="LOCAL" name="development" uuid="7607b285-ed28-428b-908e-aacc49af06a6">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\gjdou\RubymineProjects\vanpoolservicesystem\db\development.pg</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\University Of Iowa\Fall 2020\CS 5800\Team Project\SE_Ruby_Project\vanpoolservicesystem\db\development.pg</jdbc-url>
       <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.31.1/sqlite-jdbc-3.31.1.jar</url>
