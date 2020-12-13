@@ -1,12 +1,15 @@
 # Completed step definitions for basic features: AddMovie, ViewDetails, EditMovie
-
-Given /^I am on the RottenPotatoes home page$/ do
-  visit movies_path
+ Given(/^user is logged in as admin$/) do
+   visit login_path
+   fill_in 'loginUser', :with => 'admin'
+   fill_in 'loginPassword', :with => 'admin'
+   click_button 'login_submit'
  end
 
- When /^I have added a movie with title "(.*?)" and rating "(.*?)"$/ do |title, rating|
+
+ When /^I have created a vanpool with name "(.*?)" and  "(.*?)"$/ do |title, rating|
   visit new_movie_path
-  fill_in 'Title', :with => title
+  fill_in 'User-ID', :with => title
   select rating, :from => 'Rating'
   click_button 'Save Changes'
  end
@@ -35,6 +38,10 @@ And(/^I click "(.*?)"$/) do |arg|
   click_button arg
 end
 
-Then(/^I should be redirected to (.*?) $/) do |arg|
-  expect(page).to have_current_path(arg)
+Then('I should be redirected to {string}') do |string|
+  expect(page).to have_current_path(string)
+end
+
+And(/^I am on Vanpools welcome page$/) do
+  visit pages_welcome_path
 end
