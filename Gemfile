@@ -5,7 +5,7 @@ ruby '2.6.6'
 #clearance is an email/password login, with pw reset option
 
 #omniauth is for SSO stuff, if we decide to incorporate that
-gem 'omniauth', '~> 1.9.1'
+gem 'omniauth', '~> 1.9.2'
 #hashie works in tandem with omniauth gem
 gem 'hashie', '~> 4.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
